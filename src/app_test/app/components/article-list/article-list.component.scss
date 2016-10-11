@@ -1,0 +1,18 @@
+@import '../../../css/variables';
+
+:host {
+  position: relative;
+  display: block;
+
+  .article {
+    & > * {
+      border-bottom: 1px solid $border-color;
+    }
+
+    &:nth-child(odd) {
+      & > * {
+        background-color: rgba($color-blue, 0.05);//#fafafa;
+      }
+    }
+  }
+}

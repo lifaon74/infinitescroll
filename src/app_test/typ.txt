@@ -1,0 +1,4 @@
+ "pouch": "github:domiSchenk/PouchDB-typescript-definitions/pouch.d.ts#9ca0e1c654bd5db363bb98ff938445d05d2b5069"
+
+ http://stackoverflow.com/questions/13893163/jsdom-and-node-js-leaking-memory
+

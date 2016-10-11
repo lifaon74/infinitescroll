@@ -1,0 +1,178 @@
+
+// default config
+$flexgrid-container-padding: 15px !default;
+$flexgrid-col-padding: 15px !default;
+$flexgrid-columns: 12 !default;
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $flexgrid-container-padding;
+  padding-left: $flexgrid-container-padding;
+}
+
+.row {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  -webkit-box-flex: 0;
+  flex: 0 1 auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -$flexgrid-col-padding;
+  margin-left: -$flexgrid-col-padding;
+
+  &.reverse {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse;
+  }
+}
+
+.col {
+  &.reverse {
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    flex-direction: column-reverse;
+  }
+}
+
+@mixin flex-grid($name, $min-width, $container-width: 100%, $columns: $flexgrid-columns) {
+
+  @media (min-width: $min-width) {
+
+    .container {
+      width: $container-width;
+    }
+
+    %col-#{$name}-i {
+      box-sizing: border-box;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      -webkit-box-flex: 0;
+      flex: 0 0 auto;
+      padding-right: $flexgrid-col-padding;
+      padding-left: $flexgrid-col-padding;
+    }
+
+    @for $i from 1 through $columns {
+      .col-#{$name + '-' + $i} {
+        @extend %col-#{$name}-i;
+      }
+    }
+
+    .col-#{$name} {
+      @extend %col-#{$name}-i;
+
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      -webkit-box-flex: 1;
+      flex-grow: 1;
+      -ms-flex-preferred-size: 0;
+      -webkit-flex-basis: 0;
+      flex-basis: 0;
+      max-width: 100%;
+    }
+
+    @for $i from 1 through $columns {
+      $percent: 100% * ($i / $columns);
+
+      .col-#{$name + '-' + $i} {
+        -ms-flex-preferred-size: $percent;
+        -webkit-flex-basis: $percent;
+        flex-basis: $percent;
+        max-width: $percent;
+      }
+
+      .col-#{$name}-offset-#{$i} {
+        margin-left: $percent;
+      }
+    }
+
+    .start-#{$name} {
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      text-align: start;
+    }
+
+    .center-#{$name} {
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .end-#{$name} {
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      text-align: end;
+    }
+
+    .top-#{$name} {
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      -webkit-box-align: start;
+      align-items: flex-start;
+    }
+
+    .middle-#{$name} {
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .bottom-#{$name} {
+      -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+      -webkit-box-align: end;
+      align-items: flex-end;
+    }
+
+    .around-#{$name} {
+      -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+    }
+
+    .between-#{$name} {
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .first-#{$name} {
+      -webkit-order: -1;
+      -ms-flex-order: -1;
+      -webkit-box-ordinal-group: 0;
+      order: -1;
+    }
+
+    .last-#{$name} {
+      -webkit-order: 1;
+      -ms-flex-order: 1;
+      -webkit-box-ordinal-group: 2;
+      order: 1;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="infinite-stream-wrapper">
+
+  <template [infiniteStream]="options" let-item="item">
+    <hfull-vdm-article [article]="item"></hfull-vdm-article>
+  </template>
+
+ <!--<div class="article" *infiniteStream="'ok'">-->
+   <!--<hfull-vdm-article [article]="item"></hfull-vdm-article>-->
+ <!--</div>-->
+
+  <!--<div class="article" *ngFor="let item of articles" [ngSwitch]="item.type">-->
+    <!--<template [ngSwitchCase]="ArticleType.VDM">-->
+      <!--<hfull-vdm-article [article]="item"></hfull-vdm-article>-->
+    <!--</template>-->
+
+    <!--<template ngSwitchDefault>-->
+      <!--Unable to load this article-->
+    <!--</template>-->
+
+  <!--</div>-->
+</div>
+

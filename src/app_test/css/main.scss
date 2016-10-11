@@ -1,0 +1,152 @@
+@import 'variables';
+@import 'icons/styles.css';
+@import 'inputs';
+@import '../../../node_modules/spinkit/scss/spinners/10-fading-circle';
+
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  color: $text-color;
+  line-height: 18px;
+  font-size: $main-font-size;
+  font-weight: 400;
+  opacity: .87;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.wait {
+    cursor: wait;
+
+    .loader {
+      display: block;
+    }
+  }
+}
+
+p {
+
+}
+
+.icon {
+
+  @mixin icon-size($size) {
+    width: $size;
+
+    &::before {
+      width: $size;
+      height: $size;
+      line-height: $size;
+      font-size: $size;
+    }
+  }
+
+
+  display: inline-block;
+  height: 1px;
+  vertical-align: top;
+  line-height: 1px;
+  font-size: 0;
+  opacity: 0.95;
+
+  @include icon-size($icon-size);
+  //color: $icon-color;
+
+  &::before {
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    left: 0;
+  }
+
+  &.dynamic {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      //color: $icon-color-hover;
+    }
+  }
+
+  &.smaller {
+    @include icon-size($icon-size-smaller);
+
+    &::before {
+      top: 2px;
+    }
+  }
+}
+
+.body-container {
+  overflow: hidden;
+  position: absolute;
+  top: $header-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-white;
+
+  & > .loader,
+  & > .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  & > .loader {
+    display: none;
+    z-index: 1;
+
+    .message-container {
+      display: table;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 300px;
+      height: 50%;
+
+      .message {
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 40px 0;
+      }
+    }
+
+    .spinner {
+      $loader-size: 40px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: $loader-size;
+      height: $loader-size;
+      margin: (-($loader-size / 2)) 0 0 (-($loader-size / 2));
+
+      & > div {
+        &::before {
+          background-color: rgba($color-blue, 0.8) !important;
+        }
+      }
+    }
+  }
+
+  & > .content {
+    overflow-x: hidden;
+    //overflow-y: auto;
+    overflow-y: hidden;
+    //scroll-behavior: smooth;
+
+    @include scrollbar-mixin(4px, $color-white, $color-blue);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

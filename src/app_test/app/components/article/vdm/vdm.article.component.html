@@ -1,0 +1,47 @@
+<div class="header">
+  <div class="author">
+    {{article.data.user}}
+  </div>
+
+  <div class="gender">
+    <div
+      class="icon smaller"
+      [ngClass]="{
+        'man icon-8ful-mars': (article.data.gender == 'man'),
+        'woman icon-8ful-venus': (article.data.gender == 'woman')
+      }"
+      [title]="(article.data.gender == 'man') ? 'Homme' : 'Femme'"
+    ></div>
+  </div>
+
+  <div class="date">
+    {{article.data.date | date:'dd/MM/y - HH:mm'}}
+  </div>
+
+  <!--<div class="read-status" [ngClass]="{-->
+      <!--'read': article.read,-->
+      <!--'not-read': !article.read-->
+    <!--}">-->
+    <!--<div class="icons">-->
+      <!--<div class="read-icon icon smaller icon-8ful-eye" title="a"></div>-->
+      <!--<div class="not-read-icon icon smaller icon-8ful-eye" title="b"></div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="read-status">
+    <div
+      class="icon smaller"
+      [ngClass]="{
+        'icon-8ful-eye': article.read,
+        'icon-8ful-eye-slash': !article.read
+      }"
+      [title]="article.read ? 'Read' : 'Unread'"
+    ></div>
+  </div>
+
+</div>
+
+<div class="content">
+  {{article.data.text}}
+</div>
+

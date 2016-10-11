@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logo Generator</title>
+
+    <style>
+      span {
+        color: #dd3027;
+      }
+    </style>
+  <script>
+    window.onload = function() {
+
+      let logoSize = 1024;
+
+      let canvas = document.createElement('canvas');
+      canvas.width = logoSize;
+      canvas.height = logoSize;
+      let ctx =  canvas.getContext('2d');
+
+
+      ctx.translate(0.5 + (logoSize / 2), 0.5 + (logoSize / 2));
+
+
+      var polygon = function(x, y, radius) {
+        ctx.save();
+        ctx.rotate(Math.PI / 6);
+        ctx.translate(x, y);
+        ctx.fillStyle = '#dd3027';
+
+
+        ctx.beginPath();
+        ctx.moveTo(radius, 0);
+
+        let angle;
+        let steps = 6;
+        for(let i = 1; i <= steps; i++) {
+          angle = Math.PI * 2 * i / steps;
+          ctx.lineTo(Math.cos(angle) * radius, Math.sin(angle) * radius);
+        }
+
+        ctx.fill();
+        ctx.closePath();
+        ctx.restore();
+      };
+
+      let radius = logoSize / 2;
+      polygon(0, 0, radius);
+
+      var eight = function(sizeX, sizeY, thickness) {
+
+        sizeX = sizeX / Math.sqrt(2);
+        sizeY = sizeY / Math.sqrt(2);
+
+        ctx.save();
+
+        ctx.lineWidth = thickness;
+
+        ctx.lineJoin = 'bevel';
+        ctx.strokeStyle = '#ffffff';
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+
+        ctx.lineTo(sizeX, sizeY);
+        ctx.lineTo(0, sizeY * 2);
+        ctx.lineTo(-sizeX, sizeY);
+        ctx.lineTo(0, 0);
+
+        ctx.lineTo(sizeX, -sizeY);
+        ctx.lineTo(0, -sizeY * 2);
+        ctx.lineTo(-sizeX, -sizeY);
+        ctx.lineTo(0, 0);
+
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+      };
+
+      let size = radius * 0.7;
+      eight(size, Math.tan(Math.PI / 6) * size, radius * 0.2);
+
+
+      document.body.appendChild(canvas);
+
+      document.getElementById('download-link').href = canvas.toDataURL('image/png');
+
+    };
+  </script>
+</head>
+<body>
+  <a id="download-link" download="logo.png">Download as image</a><br>
+
+</body>
+</html>

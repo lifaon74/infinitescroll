@@ -1,0 +1,109 @@
+@import '../../../../css/variables';
+
+
+:host {
+  display: block;
+  padding: $main-vertical-padding $main-horizontal-padding;
+
+  .header {
+    display: table;
+    width: 100%;
+    font-weight: bold;
+
+    & > * {
+      display: table-cell;
+      vertical-align: middle;
+      white-space: nowrap;
+      padding: 0 3px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .author {
+      width: 1px;
+    }
+
+    .gender {
+      .man {
+        color: $color-blue;
+      }
+
+      .woman {
+        color: $color-pink;
+      }
+    }
+
+    .date {
+      text-align: right;
+    }
+
+    .read-status {
+      width: 1px;
+      text-align: right;
+
+      .icon {
+        opacity: 0.6;
+        transition: color 1500ms ease;
+
+        &.icon-8ful-eye {
+          color: $color-blue;
+        }
+
+        &.icon-8ful-eye-slash {
+          color: $color-red;
+        }
+      }
+
+      //.icons {
+      //  position: relative;
+      //  width: $icon-size-smaller;
+      //  height: 1px;
+      //  display: inline-block;
+      //  vertical-align: top;
+      //
+      //  .icon {
+      //    opacity: 0;
+      //    transition: opacity 1500ms ease;
+      //    position: absolute;
+      //    top: 0;
+      //    right: 0;
+      //  }
+      //
+      //  .read-icon {
+      //    color: $color-blue;
+      //  }
+      //
+      //  .not-read-icon {
+      //    color: $color-red;
+      //  }
+      //}
+      //
+      //&.read {
+      //  .icons {
+      //    .read-icon {
+      //      opacity: 1;
+      //    }
+      //  }
+      //}
+      //
+      //&.not-read {
+      //  .icons {
+      //    .not-read-icon {
+      //      opacity: 1;
+      //    }
+      //  }
+      //}
+    }
+  }
+
+  .content {
+    text-align: justify;
+    padding-top: 2px;
+  }
+}

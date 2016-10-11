@@ -1,0 +1,32 @@
+@import '../../../css/variables';
+
+:host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  //top: 400px;
+  //bottom: 400px;
+  //border: 1px solid black;
+  //background: rgba(black, 0.1);
+
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: block;
+
+
+  .infinite-stream-wrapper {
+  }
+
+  .article {
+    & > * {
+      border-bottom: 1px solid $border-color;
+    }
+
+    &:nth-child(odd) {
+      & > * {
+        background-color: rgba($color-blue, 0.05);//#fafafa;
+      }
+    }
+  }
+}

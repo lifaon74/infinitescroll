@@ -1,0 +1,47 @@
+@import '../../../css/variables';
+
+
+:host {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background-color: $color-blue;
+  color: rgba(255, 255, 255, 0.9);
+  height: $header-height;
+
+  .main-header {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    & > * {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 $main-horizontal-padding;
+    }
+
+
+    .menu-icon,
+    .options-icon {
+      width: 1px;
+    }
+
+    .menu-icon {
+
+    }
+
+    .page-title {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 22px;
+    }
+
+    .options-icon {
+      text-align: right;
+    }
+
+  }
+}

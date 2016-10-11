@@ -1,0 +1,11 @@
+<div class="article" *ngFor="let article of articles" [ngSwitch]="article.type">
+  <template [ngSwitchCase]="ArticleType.VDM">
+    <hfull-vdm-article [article]="article"></hfull-vdm-article>
+  </template>
+
+  <template ngSwitchDefault>
+    Unable to load this article
+  </template>
+
+</div>
+

@@ -1,0 +1,106 @@
+@import 'variables';
+
+// textarea, input
+* {
+  &:focus {
+    outline: none;
+  }
+}
+
+[type='checkbox'] {
+  position: absolute;
+  left: -9999px;
+
+  & + label {
+
+    position: relative;
+    padding-left: $checkbox-size;
+    cursor: pointer;
+    display: inline-block;
+    height: $checkbox-size;
+    line-height: $checkbox-size;
+
+    // box
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      border: 1px solid $input-border-color;
+      background: $input-background-color;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    // check
+    &::after {
+      content: '✔';
+      position: absolute;
+      top: 0;
+      left: 2px;
+      font-size: 14px;
+      color: $color-blue; //#1d9938
+      transition: opacity 100ms, transform 100ms;
+    }
+  }
+
+  &:not(:checked) {
+    & + label {
+      &::after {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+  }
+
+  &:checked {
+    & + label {
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  &:disabled {
+    & + label {
+      color: #aaa;
+
+      &::before {
+        box-shadow: none;
+        border-color: #bbb;
+        background-color: #ddd;
+      }
+
+      &::after {
+        color: #999;
+      }
+    }
+  }
+
+  //&:focus {
+  //  & + label {
+  //    &::before {
+  //      border: 1px dotted blue;
+  //    }
+  //  }
+  //}
+}
+
+[type='text'],
+[type='number'] {
+  height: $input-text-height;
+  padding: 0 4px;
+  color: $text-color;
+  border: 1px solid $input-border-color;
+  background-color: $input-background-color;
+  border-radius: 3px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+

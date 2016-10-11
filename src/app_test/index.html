@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="<%= APP_BASE %>">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--<%= APP_TITLE %>-->
+  <title></title>
+
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!--&lt;!&ndash;https://msdn.microsoft.com/en-us/library/dn255024(v=vs.85).aspx&ndash;&gt;-->
+  <!--<meta name="application-name" content="<%= APP_TITLE %>">-->
+  <!--<meta name="msapplication-tooltip" content="<%= APP_TITLE %>">-->
+  <!--<meta name="msapplication-starturl" content="/">-->
+  <!--&lt;!&ndash;<meta name="msapplication-window" content="width=800;height=600"/>&ndash;&gt;-->
+  <!--<meta name="msapplication-navbutton-color" content="#FF3300">-->
+  <!--<meta name="msapplication-TileColor" content="#0E2B5E"/>-->
+  <!--&lt;!&ndash;<meta name="msapplication-badge" content="frequency=30; polling-uri=http://example.com/id45453245/polling.xml">&ndash;&gt;-->
+
+
+  <!-- inject:sw -->
+  <!-- endinject -->
+
+  <!-- inject:icons -->
+  <!-- endinject -->
+
+
+     <!--critical css-->
+  <style>
+
+    html,
+    body,
+    div {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .app-loading-container {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
+
+    .app-loading-container span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  </style>
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+</head>
+<body>
+
+  <hfull-app>
+    <div class="app-loading-container">
+      <span>Loading...</span>
+    </div>
+  </hfull-app>
+
+  <script>
+  // function.name (all IE)
+  // Remove once https://github.com/angular/angular/issues/6501 is fixed.
+  /*! @source http://stackoverflow.com/questions/6903762/function-name-not-supported-in-ie*/
+  if (!Object.hasOwnProperty('name')) {
+    Object.defineProperty(Function.prototype, 'name', {
+      get: function() {
+        var matches = this.toString().match(/^\s*function\s*((?![0-9])[a-zA-Z0-9_$]*)\s*\(/);
+        var name = matches && matches.length > 1 ? matches[1] : "";
+        // For better performance only parse once, and then cache the
+        // result through a new accessor for repeated access.
+        Object.defineProperty(this, 'name', {value: name});
+        return name;
+      }
+    });
+  }
+  </script>
+
+  <script>
+  // Fixes undefined module function in SystemJS bundle
+  function module() {}
+  </script>
+
+  <!-- shims:js -->
+  <!-- endinject -->
+
+  <% if (ENV === 'dev') { %>
+  <script>
+    System.config(<%=
+      JSON.stringify(SYSTEM_CONFIG, null, 2)
+    %>)
+  </script>
+  <% } %>
+
+  <!-- libs:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <% if (ENV === 'dev') { %>
+  <script>
+  System.import('<%= BOOTSTRAP_MODULE %>')
+    .catch(function (e) {
+      console.error(e,
+        'Report this error at https://github.com/mgechev/angular2-seed/issues');
+    });
+  </script>
+  <% } %>
+
+</body>
+</html>

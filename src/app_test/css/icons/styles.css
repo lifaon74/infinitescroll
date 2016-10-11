@@ -1,0 +1,220 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "8ful";
+  src:url("fonts/8ful.eot");
+  src:url("fonts/8ful.eot?#iefix") format("embedded-opentype"),
+    url("fonts/8ful.woff") format("woff"),
+    url("fonts/8ful.ttf") format("truetype"),
+    url("fonts/8ful.svg#8ful") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "8ful" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-8ful-"]:before,
+[class*=" icon-8ful-"]:before {
+  font-family: "8ful" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-8ful-align-justify-1:before {
+  content: "\62";
+}
+.icon-8ful-bars:before {
+  content: "\63";
+}
+.icon-8ful-angle-down:before {
+  content: "\64";
+}
+.icon-8ful-angle-left:before {
+  content: "\65";
+}
+.icon-8ful-angle-right:before {
+  content: "\66";
+}
+.icon-8ful-angle-up:before {
+  content: "\67";
+}
+.icon-8ful-bolt:before {
+  content: "\68";
+}
+.icon-8ful-caret-down:before {
+  content: "\69";
+}
+.icon-8ful-caret-left:before {
+  content: "\6a";
+}
+.icon-8ful-caret-right:before {
+  content: "\6b";
+}
+.icon-8ful-caret-up:before {
+  content: "\6c";
+}
+.icon-8ful-comment:before {
+  content: "\6d";
+}
+.icon-8ful-comment-o:before {
+  content: "\6e";
+}
+.icon-8ful-commenting:before {
+  content: "\6f";
+}
+.icon-8ful-commenting-o:before {
+  content: "\70";
+}
+.icon-8ful-database:before {
+  content: "\71";
+}
+.icon-8ful-exchange:before {
+  content: "\72";
+}
+.icon-8ful-floppy-o:before {
+  content: "\73";
+}
+.icon-8ful-heart:before {
+  content: "\74";
+}
+.icon-8ful-heart-o:before {
+  content: "\75";
+}
+.icon-8ful-home:before {
+  content: "\76";
+}
+.icon-8ful-info:before {
+  content: "\77";
+}
+.icon-8ful-link:before {
+  content: "\78";
+}
+.icon-8ful-lock:before {
+  content: "\79";
+}
+.icon-8ful-minus:before {
+  content: "\7a";
+}
+.icon-8ful-pencil:before {
+  content: "\41";
+}
+.icon-8ful-plus:before {
+  content: "\42";
+}
+.icon-8ful-power-off:before {
+  content: "\43";
+}
+.icon-8ful-quote-left:before {
+  content: "\44";
+}
+.icon-8ful-quote-right:before {
+  content: "\45";
+}
+.icon-8ful-repeat:before {
+  content: "\46";
+}
+.icon-8ful-refresh:before {
+  content: "\47";
+}
+.icon-8ful-reply:before {
+  content: "\48";
+}
+.icon-8ful-rss:before {
+  content: "\49";
+}
+.icon-8ful-search-plus:before {
+  content: "\4a";
+}
+.icon-8ful-search-minus:before {
+  content: "\4b";
+}
+.icon-8ful-search:before {
+  content: "\4c";
+}
+.icon-8ful-server:before {
+  content: "\4d";
+}
+.icon-8ful-sign-in:before {
+  content: "\4e";
+}
+.icon-8ful-sign-out:before {
+  content: "\4f";
+}
+.icon-8ful-sort-amount-asc:before {
+  content: "\50";
+}
+.icon-8ful-sort-amount-desc:before {
+  content: "\51";
+}
+.icon-8ful-sort:before {
+  content: "\52";
+}
+.icon-8ful-sliders:before {
+  content: "\53";
+}
+.icon-8ful-star:before {
+  content: "\54";
+}
+.icon-8ful-star-o:before {
+  content: "\55";
+}
+.icon-8ful-tag:before {
+  content: "\56";
+}
+.icon-8ful-times:before {
+  content: "\57";
+}
+.icon-8ful-user:before {
+  content: "\58";
+}
+.icon-8ful-video-camera:before {
+  content: "\59";
+}
+.icon-8ful-wifi:before {
+  content: "\5a";
+}
+.icon-8ful-cog:before {
+  content: "\61";
+}
+.icon-8ful-male:before {
+  content: "\30";
+}
+.icon-8ful-female:before {
+  content: "\31";
+}
+.icon-8ful-mars:before {
+  content: "\32";
+}
+.icon-8ful-venus:before {
+  content: "\33";
+}
+.icon-8ful-ban:before {
+  content: "\34";
+}
+.icon-8ful-check-circle-o:before {
+  content: "\35";
+}
+.icon-8ful-eye:before {
+  content: "\36";
+}
+.icon-8ful-eye-slash:before {
+  content: "\37";
+}
